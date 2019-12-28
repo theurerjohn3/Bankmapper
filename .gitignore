@@ -1,6 +1,9 @@
-Raw_Data.csv 
-cats.csv 
-zipfile_append.zip
+*.csv
+*.zip
+deploy.sh
+uwsgi_config.ini
+requirements.txt
+bankmapper_proxy
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
