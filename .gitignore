@@ -2,7 +2,7 @@
 *.zip
 deploy.sh
 uwsgi_config.ini
-requirements.txt
+#requirements.txt
 bankmapper_proxy
 
 # Byte-compiled / optimized / DLL files
