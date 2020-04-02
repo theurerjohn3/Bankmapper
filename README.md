@@ -14,3 +14,6 @@ The label file can initally be empty, and will generate a blank set of Stores, I
 
 
 The purpose of this webapp is to catagorize my spending, and produce a pivot table to understand my spending. 
+
+
+To setup for yourself, you should be able to clone the repositiory, run pip3 install -r requirements.txt, and then run python3 application.py
