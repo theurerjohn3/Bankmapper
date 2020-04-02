@@ -16,12 +16,14 @@ ALLOWED_EXTENSIONS = {"csv"}
 app = Flask(__name__)
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
-
+# verifies the files are allowed
 def allowed_file(filename):
     return '.' in filename and \
            filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
 
-def send_the_stupid_files(df,labels):
+
+# sends the files
+def send_the_files(df,labels):
     labels.to_csv("label_download.csv",index=False)
     pivot_table = make_pivot(df)
     pivot_table.to_csv("pivot_table_download.csv")
@@ -43,15 +45,12 @@ def send_the_stupid_files(df,labels):
 @app.route('/', methods=['GET', 'POST','PUT'])
 def upload_file():
     if request.method == 'POST':
-        # check if the post request has the file part
         if 'raw_data' not in request.files or 'labels' not in request.files:
             flash('No file part')
             return redirect(request.url)
         raw_data = request.files['raw_data']
         labels = request.files['labels']
 
-        # if user does not select file, browser also
-        # submit an empty part without filename
         if raw_data.filename == '' or labels.filename == '':
             flash('No selected file')
             return redirect(request.url)
@@ -67,7 +66,7 @@ def upload_file():
 
 
 
-            return send_the_stupid_files(df,catagries)
+            return send_the_files(df,catagries)
     return '''
     <!doctype html>
     <title>Upload new File</title>
