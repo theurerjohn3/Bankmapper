@@ -9,7 +9,12 @@ Where date, company, and ammount come from traditional bank data
 and the right file, which takes a csv file with headers in the format:
 Store,Category,company
 
-The label file can initally be empty, and will generate a blank set of Stores, I then put a category with each store, once for each store, and upload the label_download and updateable_dataset files. I can repeat this process until everything is categorized
+The label file can initally be empty, and will generate a blank set of companies, I then put a Store with each company, where the "Store" is the keyword of the company, which can be used to idenfity the category.
+
+For example, if the company section was VENMO PAYMENT 3342, and I wanted to categorize all venmo payments as "Work", I would put "VENMO PAYMENT" under Store, and "Work" under category. Then, when I upload the label sheet again, all venmo payments will be categorized under work.
+
+
+I can repeat this process until everything is categorized.
 
 
 
