@@ -16,17 +16,17 @@ def catagorize(company,catagories_for_mapping):
         if row.Store in company:
             catagory_list.append(row.Category)
     if len(catagory_list)>1:
-        return "We fucked up"
+        return "Duplicate"
     if len(catagory_list)==0:
         return "input needed"
     return catagory_list[0]
 def problematic(string):
-    if string == "We fucked up" or string == "input needed":
+    if string == "Duplicate" or string == "input needed":
         return False
     return True
 def produce(df,labels):
     for i in range(0,len(df["company"])):
-        if isinstance(df["Category"][i],float) or df["Category"][i] == 'input needed' or df["Category"][i] == 'We fucked up':
+        if isinstance(df["Category"][i],float) or df["Category"][i] == 'input needed' or df["Category"][i] == 'Duplicate':
             df["Category"][i]=catagorize(df["company"][i],labels)
     efficent = pd.DataFrame({'company': df[df["Category"]=='input needed']["company"]})
     labels = pd.concat([labels,efficent], ignore_index=True,sort=False)
